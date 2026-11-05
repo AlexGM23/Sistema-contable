@@ -1,0 +1,106 @@
+Codigo,Nombre,Tipo,Saldo
+101,"Caja",ACTIVO CIRCULANTE,0.0
+102,"Fondos de caja",ACTIVO CIRCULANTE,0.0
+103,"Bancos",ACTIVO CIRCULANTE,0.0
+104,"Instrumentos financieros",ACTIVO CIRCULANTE,0.0
+105,"Clientes",ACTIVO CIRCULANTE,0.0
+106,"Documentos por cobrar",ACTIVO CIRCULANTE,0.0
+107,"Deudores",ACTIVO CIRCULANTE,0.0
+108,"Funcionarios y empleados",ACTIVO CIRCULANTE,0.0
+109,"IVA acreditable",ACTIVO CIRCULANTE,0.0
+110,"IVA pendiente de acreditar",ACTIVO CIRCULANTE,0.0
+111,"Anticipo de impuestos",ACTIVO CIRCULANTE,0.0
+112,"Inventarios",ACTIVO CIRCULANTE,0.0
+113,"Mercancías en tránsito",ACTIVO CIRCULANTE,0.0
+114,"Anticipo a proveedores",ACTIVO CIRCULANTE,0.0
+115,"Papelería y útiles",ACTIVO CIRCULANTE,0.0
+116,"Propaganda y publicidad pagada por anticipado",ACTIVO CIRCULANTE,0.0
+117,"Primas de seguros y fianzas pagadas por anticipado",ACTIVO CIRCULANTE,0.0
+118,"Rentas pagadas por anticipado",ACTIVO CIRCULANTE,0.0
+119,"Intereses pagados por anticipado",ACTIVO CIRCULANTE,0.0
+120,"Otros activos circulantes",ACTIVO CIRCULANTE,0.0
+121,"Terrenos",ACTIVO NO CIRCULANTE,200000.0
+122,"Edificios",ACTIVO NO CIRCULANTE,40000.0
+123,"Maquinaria",ACTIVO NO CIRCULANTE,0.0
+124,"Mobiliario y equipo de oficina",ACTIVO NO CIRCULANTE,36000.0
+125,"Muebles y enseres",ACTIVO NO CIRCULANTE,0.0
+126,"Equipo de transporte",ACTIVO NO CIRCULANTE,0.0
+127,"Equipo de entrega y reparto",ACTIVO NO CIRCULANTE,0.0
+128,"Equipo de cómputo",ACTIVO NO CIRCULANTE,10000.0
+129,"Derechos de autor",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+130,"Patentes",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+131,"Marcas y nombres comerciales",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+132,"Crédito mercantil",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+133,"Gastos preoperativos",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+134,"Franquicias",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+135,"Gastos de constitución",ACTIVO NO CIRCULANTE - INTANGIBLE,0.0
+136,"Fondos a largo plazo",ACTIVO NO CIRCULANTE,0.0
+137,"Cuentas por cobrar a largo plazo",ACTIVO NO CIRCULANTE,0.0
+138,"Pagos anticipados a largo plazo",ACTIVO NO CIRCULANTE,0.0
+139,"Inmuebles no utilizados",ACTIVO NO CIRCULANTE,0.0
+140,"Depósitos en garantía",ACTIVO NO CIRCULANTE,0.0
+141,"Otros activos no circulantes",ACTIVO NO CIRCULANTE,0.0
+201,"Proveedores",PASIVO A CORTO PLAZO,0.0
+202,"Acreedores",PASIVO A CORTO PLAZO,0.0
+203,"Documentos por pagar",PASIVO A CORTO PLAZO,0.0
+204,"Acreedores bancarios a corto plazo",PASIVO A CORTO PLAZO,0.0
+205,"Anticipo de clientes",PASIVO A CORTO PLAZO,0.0
+206,"Dividendos por pagar",PASIVO A CORTO PLAZO,0.0
+207,"IVA por pagar",PASIVO A CORTO PLAZO,0.0
+208,"Impuestos y derechos por pagar",PASIVO A CORTO PLAZO,0.0
+209,"Rentas cobradas por anticipado",PASIVO A CORTO PLAZO,0.0
+210,"Intereses cobrados por anticipado",PASIVO A CORTO PLAZO,0.0
+211,"Acreedores hipotecarios",PASIVO A LARGO PLAZO,0.0
+212,"Documentos por pagar a largo plazo",PASIVO A LARGO PLAZO,0.0
+213,"Obligaciones en circulación",PASIVO A LARGO PLAZO,0.0
+214,"Rentas cobradas por anticipado a largo plazo",PASIVO A LARGO PLAZO,0.0
+301,"Capital social",CAPITAL CONTRIBUIDO,0.0
+302,"Aportaciones para futuros aumentos de capital",CAPITAL CONTRIBUIDO,0.0
+303,"Prima en venta de acciones",CAPITAL CONTRIBUIDO,0.0
+304,"Utilidades integrales acumuladas",CAPITAL GANADO,0.0
+305,"Pérdidas integrales acumuladas",CAPITAL GANADO,0.0
+306,"Reservas",CAPITAL GANADO,0.0
+307,"Utilidad o pérdida del ejercicio",CAPITAL GANADO,0.0
+401,"Ventas",INGRESOS - VENTAS,0.0
+402,"Devoluciones sobre ventas",DEDUCCIONES SOBRE VENTAS,0.0
+403,"Rebajas sobre ventas",DEDUCCIONES SOBRE VENTAS,0.0
+404,"Otros ingresos",OTROS INGRESOS,0.0
+501,"Compras",COMPRAS Y COSTO DE VENTAS,0.0
+502,"Gastos de compras",COMPRAS Y COSTO DE VENTAS,0.0
+503,"Devoluciones sobre compras",DEDUCCIONES SOBRE COMPRAS,0.0
+504,"Rebajas sobre compras",DEDUCCIONES SOBRE COMPRAS,0.0
+505,"Descuentos sobre compras",DEDUCCIONES SOBRE COMPRAS,0.0
+506,"Costo de ventas o costo de lo vendido",COSTO DE VENTAS,0.0
+507,"Gastos de venta",GASTOS DE VENTA,0.0
+508,"Sueldos de jefes del departamento de ventas",GASTOS DE VENTA,0.0
+509,"Sueldos de empleados de almacén",GASTOS DE VENTA,0.0
+510,"Sueldos de vendedores de mostrador",GASTOS DE VENTA,0.0
+511,"Sueldos de choferes de reparto",GASTOS DE VENTA,0.0
+512,"Comisiones de agentes y vendedores",GASTOS DE VENTA,0.0
+513,"Seguro social del personal de ventas",GASTOS DE VENTA,0.0
+514,"Propaganda y publicidad",GASTOS DE VENTA,0.0
+515,"Etiquetas, envolturas y empaques",GASTOS DE VENTA,0.0
+516,"Fletes y acarreos de mercancías vendidas",GASTOS DE VENTA,0.0
+517,"Mantenimiento del equipo de reparto",GASTOS DE VENTA,0.0
+518,"Impuesto sobre ingresos mercantiles",GASTOS DE VENTA,0.0
+519,"Parte proporcional de alquiler del área de ventas",GASTOS DE VENTA,0.0
+520,"Parte proporcional de electricidad y teléfono del área de ventas",GASTOS DE VENTA,0.0
+521,"Depreciación del equipo de ventas y reparto",GASTOS DE VENTA,0.0
+522,"Gastos de administración",GASTOS DE ADMINISTRACIÓN,0.0
+523,"Sueldos administrativos",GASTOS DE ADMINISTRACIÓN,0.0
+524,"Seguro social del personal administrativo",GASTOS DE ADMINISTRACIÓN,0.0
+525,"Alquiler administrativo",GASTOS DE ADMINISTRACIÓN,0.0
+526,"Papelería y útiles de oficina",GASTOS DE ADMINISTRACIÓN,0.0
+527,"Servicios públicos y teléfono administrativos",GASTOS DE ADMINISTRACIÓN,0.0
+528,"Depreciación de equipo administrativo",GASTOS DE ADMINISTRACIÓN,0.0
+529,"Mantenimiento y reparaciones administrativas",GASTOS DE ADMINISTRACIÓN,0.0
+530,"Gastos financieros",GASTOS FINANCIEROS,0.0
+531,"Descuentos concedidos por pronto pago a clientes",GASTOS FINANCIEROS,0.0
+532,"Intereses pagados",GASTOS FINANCIEROS,0.0
+533,"Comisiones bancarias",GASTOS FINANCIEROS,0.0
+534,"Impuesto sobre la renta (ISR)",GASTOS POR IMPUESTOS,0.0
+535,"Otros gastos",OTROS GASTOS,0.0
+251,"Credito a banco 1500 largo plazo",PASIVO A LARGO PLAZO,0.0
+142,"Efectivo",ACTIVO CIRCULANTE,0.0
+308,"Patrimonio",CAPITAL CONTRIBUIDO,0.0
+252,"Cuentas por pagar",PASIVO A LARGO PLAZO,0.0
