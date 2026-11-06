@@ -119,7 +119,7 @@ public class LogicaContable {
             boolean primeraLinea = true;
             while ((linea = br.readLine()) != null) {
                 if (primeraLinea) { primeraLinea = false; continue; }
-                String[] partes = linea.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+                String[] partes = linea.split(",(?=([^"]*\"[^"]*\")*[^"]*$)");
                 if (partes.length >= 6) {
                     try {
                         int asiento = Integer.parseInt(partes[0].trim());
@@ -143,6 +143,23 @@ public class LogicaContable {
         } catch (IOException e) {
             System.out.println("Error al cargar transacciones: " + e.getMessage());
         }
+    }
+
+    public static void recalcularSaldosDesdeMovimientos() {
+        for (int i = 0; i < nombresCuentas.size(); i++) {
+            saldosCuentas.set(i, 0.0);
+        }
+
+        for (int i = 0; i < numAsientos.size(); i++) {
+            if (cuentasDebe.size() > i && !"---".equalsIgnoreCase(cuentasDebe.get(i))) {
+                actualizarSaldoCuenta(cuentasDebe.get(i), importesMovimientos.get(i), true);
+            }
+            if (cuentasHaber.size() > i && !"---".equalsIgnoreCase(cuentasHaber.get(i))) {
+                actualizarSaldoCuenta(cuentasHaber.get(i), importesMovimientos.get(i), false);
+            }
+        }
+
+        guardarCatalogoCSV();
     }
 
     // --- ACTUALIZAR SALDO NETO SEGÚN NATURALEZA ---
@@ -269,17 +286,27 @@ public class LogicaContable {
 
     public static void generarEstadoResultados() {
         double ingresos = 0;
+        double deduccionesVentas = 0;
+        double deduccionesCompras = 0;
         double gastos = 0;
         for (int i = 0; i < nombresCuentas.size(); i++) {
             String tipo = tiposCuentas.get(i).toUpperCase();
             if (tipo.contains("INGRESO")) ingresos += saldosCuentas.get(i);
+            if (tipo.contains("DEDUCCIONES SOBRE VENTAS")) deduccionesVentas += saldosCuentas.get(i);
+            if (tipo.contains("DEDUCCIONES SOBRE COMPRAS")) deduccionesCompras += saldosCuentas.get(i);
             if (tipo.contains("GASTO") || tipo.contains("COSTO") || tipo.contains("COMPRAS")) {
                 gastos += saldosCuentas.get(i);
             }
         }
+        double ingresosNetos = ingresos - deduccionesVentas;
+        double utilidadNeta = ingresosNetos - gastos - deduccionesCompras;
+
         System.out.println("Ingresos: C$ " + ingresos);
+        System.out.println("Deducciones sobre ventas: C$ " + deduccionesVentas);
+        System.out.println("Ingresos netos: C$ " + ingresosNetos);
+        System.out.println("Deducciones sobre compras: C$ " + deduccionesCompras);
         System.out.println("Gastos: C$ " + gastos);
-        System.out.println("Utilidad neta: C$ " + (ingresos - gastos));
+        System.out.println("Utilidad neta: C$ " + utilidadNeta);
     }
 
     public static void generarBalanceGeneral() {
@@ -454,7 +481,8 @@ public class LogicaContable {
             return;
         }
 
-        System.out.println("Cuenta seleccionada: " + nombresCuentas.get(idx) + " (Saldo actual: C$ " + saldosCuentas.get(idx) + ")");
+        String nombreAnterior = nombresCuentas.get(idx);
+        System.out.println("Cuenta seleccionada: " + nombreAnterior + " (Saldo actual: C$ " + saldosCuentas.get(idx) + ")");
         if (saldosCuentas.get(idx) != 0.0) {
             System.out.println("ADVERTENCIA: Esta cuenta tiene un monto/saldo activo.");
             System.out.print("¿Desea continuar con la modificación? (s/n): ");
@@ -463,12 +491,25 @@ public class LogicaContable {
 
         System.out.print("Nuevo nombre de la cuenta: ");
         String nuevoNombre = scanner.nextLine().trim();
-        if (!nombresCuentas.get(idx).equalsIgnoreCase(nuevoNombre) && nombresCuentas.contains(nuevoNombre)) {
+        if (!nombreAnterior.equalsIgnoreCase(nuevoNombre) && nombresCuentas.contains(nuevoNombre)) {
             System.out.println("Error: Ya existe otra cuenta con ese nombre.");
             return;
         }
         nombresCuentas.set(idx, nuevoNombre);
+
+        for (int i = 0; i < cuentasDebe.size(); i++) {
+            if (cuentasDebe.get(i).equalsIgnoreCase(nombreAnterior)) {
+                cuentasDebe.set(i, nuevoNombre);
+            }
+        }
+        for (int i = 0; i < cuentasHaber.size(); i++) {
+            if (cuentasHaber.get(i).equalsIgnoreCase(nombreAnterior)) {
+                cuentasHaber.set(i, nuevoNombre);
+            }
+        }
+
         guardarCatalogoCSV();
+        guardarTransaccionesCSV();
         System.out.println("¡Cuenta modificada y actualizada en catalogo.csv con éxito!");
     }
 
@@ -509,12 +550,24 @@ public class LogicaContable {
                 if (!scanner.nextLine().trim().equalsIgnoreCase("s")) return;
             }
 
+            for (int j = numAsientos.size() - 1; j >= 0; j--) {
+                if (cuentasDebe.get(j).equalsIgnoreCase(nombreCuenta) || cuentasHaber.get(j).equalsIgnoreCase(nombreCuenta)) {
+                    numAsientos.remove(j);
+                    fechasMovimientos.remove(j);
+                    cuentasDebe.remove(j);
+                    cuentasHaber.remove(j);
+                    importesMovimientos.remove(j);
+                    conceptosMovimientos.remove(j);
+                }
+            }
+
             codigosCuentas.remove(idx);
             nombresCuentas.remove(idx);
             tiposCuentas.remove(idx);
             saldosCuentas.remove(idx);
-            guardarCatalogoCSV();
-            System.out.println("¡Cuenta eliminada con éxito y catalogo.csv actualizado!");
+            guardarTransaccionesCSV();
+            recalcularSaldosDesdeMovimientos();
+            System.out.println("¡Cuenta eliminada con éxito y datos actualizados!");
 
          } else if (opcionSub == 2) {
             ArrayList<Integer> indicesTransacciones = new ArrayList<>();
@@ -559,6 +612,7 @@ public class LogicaContable {
                 importesMovimientos.remove(indexReal);
                 conceptosMovimientos.remove(indexReal);
                 guardarTransaccionesCSV();
+                recalcularSaldosDesdeMovimientos();
                 System.out.println("Movimiento eliminado.");
             }
         }
